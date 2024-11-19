@@ -1,3 +1,4 @@
+import 'package:chess_game/components/square.dart';
 import 'package:flutter/material.dart';
 
 class GameBoard extends StatefulWidget {
@@ -10,6 +11,20 @@ class GameBoard extends StatefulWidget {
 class _GameBoardState extends State<GameBoard> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold();
+    return Scaffold(
+      body: GridView.builder(
+          itemCount: 8 * 8,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8),
+          itemBuilder: (context, index) {
+            int x = index ~/ 8;
+            int y = index % 8;
+
+            bool isWhite = (x + y) % 2 == 0;
+
+            return Square(isWhite: isWhite);
+          }),
+    );
   }
 }
