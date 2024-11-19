@@ -1,3 +1,4 @@
+import 'package:chess_game/game_board.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(),
+      debugShowCheckedModeBanner: false,
+      home:GameBoard(),
+     
     );
   }
 }
