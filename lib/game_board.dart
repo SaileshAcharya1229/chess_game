@@ -22,26 +22,60 @@ class _GameBoardState extends State<GameBoard> {
   }
 
   //initialize the board
-  void _initalizeBoard() {}
-  //create a piece
-  ChessPiece myPawn = ChessPiece(
-      type: ChessPieceType.pwan,
-      isWhite: true,
-      imagePath: 'lib/images/pawn.png');
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.builder(
-          itemCount: 8 * 8,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8),
-          itemBuilder: (context, index) {
-            return Square(
-              isWhite: isWhite(index),
-              piece: myPawn,
-            );
-          }),
-    );
+  void _initalizeBoard() {
+    //initialize the board  with nulls, meaning no pieces in those positions ;
+    List<List<ChessPiece?>> newBoard = List.generate(
+        8,
+        (index) => List.generate(
+              8,
+              (index) => null,
+            ));
+
+    //place pawns
+    for (int i = 0; i < 8; i++) {
+      newBoard[1][i] = ChessPiece(
+          type: ChessPieceType.pwan,
+          isWhite: false,
+          imagePath: 'lib/images/pawn.png');
+      for (int i = 0; i < 8; i++) {
+        newBoard[1][i] = ChessPiece(
+            type: ChessPieceType.pwan,
+            isWhite: true,
+            imagePath: 'lib/images/pawn.png');
+      }
+
+      //place rooks
+
+      //place knights
+
+      //place bishops
+
+      //place kings
+
+      //place queens
+
+      board = newBoard;
+    }
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        body: GridView.builder(
+            itemCount: 8 * 8,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8),
+            itemBuilder: (context, index) {
+              //get the row and col position of this square
+
+              int row = index ~/ 8;
+              int col = index % 8;
+              return Square(
+                isWhite: isWhite(index),
+                piece: board[row][col],
+              );
+            }),
+      );
+    }
   }
 }
