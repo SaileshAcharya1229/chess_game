@@ -19,6 +19,7 @@ class _GameBoardState extends State<GameBoard> {
   @override
   void initState() {
     super.initState();
+    _initalizeBoard();
   }
 
   //initialize the board
@@ -38,10 +39,10 @@ class _GameBoardState extends State<GameBoard> {
           isWhite: false,
           imagePath: 'lib/images/pawn.png');
       for (int i = 0; i < 8; i++) {
-        newBoard[1][i] = ChessPiece(
+        newBoard[6][i] = ChessPiece(
             type: ChessPieceType.pwan,
             isWhite: true,
-            imagePath: 'lib/images/pawn.png');
+            imagePath: 'lib/images/wpawn.png');
       }
 
       //place rooks
@@ -56,26 +57,26 @@ class _GameBoardState extends State<GameBoard> {
 
       board = newBoard;
     }
+  }
 
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        body: GridView.builder(
-            itemCount: 8 * 8,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8),
-            itemBuilder: (context, index) {
-              //get the row and col position of this square
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GridView.builder(
+          itemCount: 8 * 8,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8),
+          itemBuilder: (context, index) {
+            //get the row and col position of this square
 
-              int row = index ~/ 8;
-              int col = index % 8;
-              return Square(
-                isWhite: isWhite(index),
-                piece: board[row][col],
-              );
-            }),
-      );
-    }
+            int row = index ~/ 8;
+            int col = index % 8;
+            return Square(
+              isWhite: isWhite(index),
+              piece: board[row][col],
+            );
+          }),
+    );
   }
 }
