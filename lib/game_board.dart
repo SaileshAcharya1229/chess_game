@@ -69,6 +69,24 @@ class _GameBoardState extends State<GameBoard> {
 
       //place knights
 
+      newBoard[0][1] = ChessPiece(
+          type: ChessPieceType.knight,
+          isWhite: false,
+          imagePath: 'lib/images/wpawn');
+      newBoard[0][6] = ChessPiece(
+          type: ChessPieceType.knight,
+          isWhite: false,
+          imagePath: 'lib/images/wpawn');
+      newBoard[7][1] = ChessPiece(
+          type: ChessPieceType.knight,
+          isWhite: false,
+          imagePath: 'lib/images/wpawn');
+
+      newBoard[7][6] = ChessPiece(
+          type: ChessPieceType.knight,
+          isWhite: false,
+          imagePath: 'lib/images/wpawn');
+
       //place bishops
 
       //place kings
