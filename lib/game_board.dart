@@ -72,22 +72,42 @@ class _GameBoardState extends State<GameBoard> {
       newBoard[0][1] = ChessPiece(
           type: ChessPieceType.knight,
           isWhite: false,
-          imagePath: 'lib/images/wpawn');
+          imagePath: 'lib/images/knightw.png');
       newBoard[0][6] = ChessPiece(
           type: ChessPieceType.knight,
           isWhite: false,
-          imagePath: 'lib/images/wpawn');
+          imagePath: 'lib/images/knightw.png');
       newBoard[7][1] = ChessPiece(
           type: ChessPieceType.knight,
-          isWhite: false,
-          imagePath: 'lib/images/wpawn');
+          isWhite: true,
+          imagePath: 'lib/images/blackknight.png');
 
       newBoard[7][6] = ChessPiece(
           type: ChessPieceType.knight,
-          isWhite: false,
-          imagePath: 'lib/images/wpawn');
+          isWhite: true,
+          imagePath: 'lib/images/blackknight.png');
 
       //place bishops
+      newBoard[0][2] = ChessPiece(
+        type: ChessPieceType.bishop,
+        isWhite: false,
+        imagePath: 'lib/images/bishop.png',
+      );
+      newBoard[0][5] = ChessPiece(
+        type: ChessPieceType.bishop,
+        isWhite: false,
+        imagePath: 'lib/images/bishop.png',
+      );
+      newBoard[7][2] = ChessPiece(
+        type: ChessPieceType.bishop,
+        isWhite: true,
+        imagePath: 'lib/images/bishop.png',
+      );
+      newBoard[7][5] = ChessPiece(
+        type: ChessPieceType.bishop,
+        isWhite: true,
+        imagePath: 'lib/images/bishop.png',
+      );
 
       //place kings
 
