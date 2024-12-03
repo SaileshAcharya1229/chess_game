@@ -110,8 +110,28 @@ class _GameBoardState extends State<GameBoard> {
       );
 
       //place kings
+      newBoard[7][3] = ChessPiece(
+        type: ChessPieceType.king,
+        isWhite: true,
+        imagePath: 'lib/images/king.png',
+      );
+      newBoard[7][3] = ChessPiece(
+        type: ChessPieceType.queen,
+        isWhite: true,
+        imagePath: 'lib/images/kings.png',
+      );
 
       //place queens
+      newBoard[0][3] = ChessPiece(
+        type: ChessPieceType.queen,
+        isWhite: false,
+        imagePath: 'lib/images/queen.png',
+      );
+      newBoard[7][4] = ChessPiece(
+        type: ChessPieceType.queen,
+        isWhite: true,
+        imagePath: 'lib/images/queen.png',
+      );
 
       board = newBoard;
     }
