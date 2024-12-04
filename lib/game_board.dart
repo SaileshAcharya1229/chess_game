@@ -153,6 +153,7 @@ class _GameBoardState extends State<GameBoard> {
             return Square(
               isWhite: isWhite(index),
               piece: board[row][col],
+              isSelected: false,
             );
           }),
     );
