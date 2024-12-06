@@ -1,4 +1,5 @@
 import 'package:chess_game/components/piece.dart';
+import 'package:chess_game/values/color.dart';
 import 'package:flutter/material.dart';
 
 class Square extends StatelessWidget {
@@ -18,8 +19,11 @@ class Square extends StatelessWidget {
     }
 
     //otherwise white or black
+    else {
+      squareColor = isWhite ? foregroundColor : backgroundColor;
+    }
     return Container(
-      color: isWhite ? Colors.grey[200] : Colors.grey[500],
+      color: squareColor,
       child: piece != null ? Image.asset(piece!.imagePath) : null,
     );
   }

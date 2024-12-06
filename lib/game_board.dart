@@ -16,6 +16,13 @@ class _GameBoardState extends State<GameBoard> {
 
   late List<List<ChessPiece?>> board;
 
+//the currently selected piece on the chess board,
+//if no piece is selected, this is null,
+  ChessPiece? selectedPiece;
+
+  //the row index of the selected piece
+  int selectedRow = -1;
+
   @override
   void initState() {
     super.initState();
