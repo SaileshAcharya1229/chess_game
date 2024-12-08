@@ -21,7 +21,12 @@ class _GameBoardState extends State<GameBoard> {
   ChessPiece? selectedPiece;
 
   //the row index of the selected piece
+  //default value -1 indicated no piece is currently selected;
   int selectedRow = -1;
+
+  //the col index of the selected piece
+  //default value -1 indicated no piece is currently selected;
+  int selectedCol = -1;
 
   @override
   void initState() {
@@ -144,6 +149,18 @@ class _GameBoardState extends State<GameBoard> {
     }
   }
 
+// USER selected a piece
+  void pieceSelected(int row, int col) {
+    setState(() {
+      //selected a piece if there is a piece in that position
+      if (board[row][col] != null) {
+        selectedPiece = board[row][col];
+        selectedRow = row;
+        selectedCol = col;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,10 +174,13 @@ class _GameBoardState extends State<GameBoard> {
 
             int row = index ~/ 8;
             int col = index % 8;
+
+            //check if this square is selected
+            bool isSelected = selectedRow == row && selectedCol == col;
             return Square(
               isWhite: isWhite(index),
               piece: board[row][col],
-              isSelected: false,
+              isSelected: isSelected,
             );
           }),
     );
