@@ -6,8 +6,9 @@ class Square extends StatelessWidget {
   final bool isWhite;
   final ChessPiece? piece;
   final bool isSelected;
+  final void Function()? onTap;
   const Square(
-      {super.key, required this.isWhite, this.piece, required this.isSelected});
+      {super.key, required this.isWhite, this.piece, required this.isSelected, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,12 @@ class Square extends StatelessWidget {
     else {
       squareColor = isWhite ? foregroundColor : backgroundColor;
     }
-    return Container(
-      color: squareColor,
-      child: piece != null ? Image.asset(piece!.imagePath) : null,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        color: squareColor,
+        child: piece != null ? Image.asset(piece!.imagePath) : null,
+      ),
     );
   }
 }
