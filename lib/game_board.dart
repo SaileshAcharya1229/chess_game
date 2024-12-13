@@ -165,7 +165,7 @@ class _GameBoardState extends State<GameBoard> {
     });
   }
 
-  // calculate raw valid moves 
+  // calculate raw valid moves
 
   @override
   Widget build(BuildContext context) {
@@ -193,4 +193,3 @@ class _GameBoardState extends State<GameBoard> {
     );
   }
 }
-  
