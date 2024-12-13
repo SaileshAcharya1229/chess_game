@@ -28,6 +28,10 @@ class _GameBoardState extends State<GameBoard> {
   //default value -1 indicated no piece is currently selected;
   int selectedCol = -1;
 
+  //a list of valid moves for the currently selected piece
+  // each move is  represented  as a  list with 2 elements: row and col
+  List<List<int>> validMoves = [];
+
   @override
   void initState() {
     super.initState();
@@ -161,6 +165,8 @@ class _GameBoardState extends State<GameBoard> {
     });
   }
 
+  // calculate raw valid moves 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -187,3 +193,4 @@ class _GameBoardState extends State<GameBoard> {
     );
   }
 }
+  
