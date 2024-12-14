@@ -162,10 +162,21 @@ class _GameBoardState extends State<GameBoard> {
         selectedRow = row;
         selectedCol = col;
       }
+      //if a piece is selected, claculate its valid moves
+      validMoves =
+          calculateRawValidMoves(selectedRow, selectedCol, selectedPiece);
     });
   }
 
   // calculate raw valid moves
+  List<List<int>> calculateRawValidMoves(
+      int row, int col, ChessPiece? Piece) {
+    List<List<int>> candidateMoves = [];
+
+    //different directions based on their color
+    int direction = piece!.isWhite? -1 :1 ;
+
+  }
 
   @override
   Widget build(BuildContext context) {
