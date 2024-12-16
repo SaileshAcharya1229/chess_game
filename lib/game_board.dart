@@ -169,7 +169,7 @@ class _GameBoardState extends State<GameBoard> {
   }
 
   // calculate raw valid moves
-  List<List<int>> calculateRawValidMoves(int row, int col, ChessPiece? Piece) {
+  List<List<int>> calculateRawValidMoves(int row, int col, ChessPiece? piece) {
     List<List<int>> candidateMoves = [];
 
     //different directions based on their color
@@ -178,12 +178,15 @@ class _GameBoardState extends State<GameBoard> {
     switch (piece.type) {
       case ChessPieceType.pwan:
 
-      //pawns can move forward if the square are not occupied
+        //pawns can move forward if the square are not occupied
+        if (isInBoard(row + direction, col) &&
+            board[row + direction][col] == null) {
+          candidateMoves.add([row + direction, col]);
+        }
 
-      //pawns can move 2 step if they are in 1st step
+        //pawns can move 2 step if they are in 1st step
 
-
-      //pawns can kill diagonally
+        //pawns can kill diagonally
         break;
       case ChessPieceType.rook:
         break;
