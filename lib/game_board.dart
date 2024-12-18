@@ -185,6 +185,13 @@ class _GameBoardState extends State<GameBoard> {
         }
 
         //pawns can move 2 step if they are in 1st step
+        if ((row == 1 && !piece.isWhite) || (row == 6 && piece.isWhite)) {
+          if (isInBoard(row + 2, col) &&
+              board[row + 2 * direction][col] == null &&
+              board[row + direction][col] == null) {
+            candidateMoves.add([row + 2 * direction, col]);
+          }
+        }
 
         //pawns can kill diagonally
         break;
